@@ -1,8 +1,8 @@
 # Button
 
-## The API documentation of the Button React component.
+The API documentation of the Button React component.
 
-Props
+## Props
 
 <table>
   <thead>
