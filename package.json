@@ -2,9 +2,10 @@
   "name": "preact-bootstrap-ui",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,8 @@
   "devDependencies": {
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-loader": "^8.0.0",
     "css-loader": "^1.0.0",
     "preact": "^8.3.1",
     "style-loader": "^0.23.0",
@@ -26,6 +29,7 @@
     "webpack-cli": "^3.1.0"
   },
   "dependencies": {
+    "babel-plugin-transform-react-jsx": "^6.24.1",
     "bootstrap": "^4.1.3"
   }
 }
