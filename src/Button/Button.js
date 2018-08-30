@@ -7,14 +7,15 @@ class Button extends Component {
 
   render(props) { 
     const { 
+      children, 
       type, 
       color, 
-      children, 
       size, 
-      disabled
+      disabled, 
+      fullWidth, 
     } = props
 
-    return <button type={type} class={`btn btn-${color} btn-${size}`} disabled={disabled}>{children}</button>
+    return <button type={type} class={`btn btn-${color} btn-${size} btn-${(fullWidth ? 'block' : '' )}`} disabled={disabled}>{children}</button>
   }
 }
 

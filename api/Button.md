@@ -38,5 +38,11 @@ The API documentation of the Button React component.
       <td></td>
       <td></td>
     </tr>
+    <tr>
+      <td>fullWidth</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
   </tbody>
 </table>
