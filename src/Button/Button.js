@@ -11,9 +11,10 @@ class Button extends Component {
       color, 
       children, 
       size, 
+      disabled
     } = props
 
-    return <button type={type} class={`btn btn-${color} btn-${size}`}>{children}</button>
+    return <button type={type} class={`btn btn-${color} btn-${size}`} disabled={disabled}>{children}</button>
   }
 }
 
