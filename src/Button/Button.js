@@ -1,6 +1,10 @@
-import { h, render, Component } from 'preact'
+import { 
+  h, 
+  render, 
+  Component 
+} from 'preact'
 
-class Button extends Component { 
+export default class Button extends Component { 
   constructor() { 
     super(); 
   } 
@@ -8,15 +12,25 @@ class Button extends Component {
   render(props) { 
     const { 
       children, 
+      variant, 
       type, 
       color, 
       size, 
-      disabled, 
-      fullWidth, 
+      fullWidth,
+      disabled,
+      style, 
+      classes, 
+      onClick, 
     } = props
 
-    return <button type={type} class={`btn btn-${color} btn-${size} btn-${(fullWidth ? 'block' : '' )}`} disabled={disabled}>{children}</button>
+    return <button 
+              type={type} 
+              className={`btn btn-${((variant && variant === 'outline') ? (variant + '-' + color) : color)} btn-${size} btn-${(fullWidth ? 'block' : '' )} ${classes}`} 
+              disabled={disabled}
+              onClick={onClick}
+              style={style}
+            >
+              {children}
+            </button>
   }
 }
-
-export default Button
