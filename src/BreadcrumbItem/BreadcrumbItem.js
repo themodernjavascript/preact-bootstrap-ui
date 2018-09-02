@@ -9,49 +9,39 @@ import classNames from 'classnames'
 import { mapToCssModules } from './../Utils'
 
 const propTypes = {
-  color: PropTypes.string,
-  pill: PropTypes.bool,
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  children: PropTypes.node,
+  active: PropTypes.bool,
   className: PropTypes.string,
   cssModule: PropTypes.object,
 }
 
 const defaultProps = {
-  color: 'secondary',
-  pill: false,
-  tag: 'span'
+  tag: 'li'
 }
 
-class Badge extends Component { 
+class BreadcrumbItem extends Component { 
   render(props) {
     const {
       className,
       cssModule,
-      color,
-      pill,
+      active,
       tag: Tag,
       ...attributes
     } = props
-
+    
     const classes = mapToCssModules(classNames(
       className,
-      'badge',
-      'badge-' + color,
-      pill ? 'badge-pill' : false
+      active ? 'active' : false,
+      'breadcrumb-item'
     ), cssModule)
 
-    if (attributes.href && Tag === 'span') {
-      Tag = 'a'
-    }
-    
     return (
-      <Tag {...attributes} className={classes} />
+      <Tag {...attributes} className={classes} aria-current={active ? 'page' : undefined} />
     )
   }
 }
 
-Badge.propTypes = propTypes
-Badge.defaultProps = defaultProps
+BreadcrumbItem.propTypes = propTypes
+BreadcrumbItem.defaultProps = defaultProps
 
-export default Badge
+export default BreadcrumbItem
