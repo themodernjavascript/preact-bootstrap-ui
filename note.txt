@@ -2,6 +2,10 @@
 - Button Dropdown
 - Button Group
 - Collapse
+- Carousel
+- Dropdowns
+- Fade
+- InputGroupButtonDropdown
 
 export { default } from './'
 
@@ -14,4 +18,3 @@ import {
 import PropTypes from 'proptypes'
 import classNames from 'classnames'
 import { mapToCssModules } from './../Utils'
-
