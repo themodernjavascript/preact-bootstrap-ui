@@ -1,4 +1,17 @@
 - Alert
 - Button Dropdown
 - Button Group
+- Collapse
+
+export { default } from './'
+
+import { 
+  h, 
+  render, 
+  Component 
+} from 'preact'
+
+import PropTypes from 'proptypes'
+import classNames from 'classnames'
+import { mapToCssModules } from './../Utils'
 

@@ -1,4 +1,5 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 export { default as Badge } from './Badge'
 export { default as Breadcrumb } from './Breadcrumb'
 export { default as BreadcrumbItem } from './BreadcrumbItem'
@@ -17,3 +18,6 @@ export { default as CardLink } from './CardLink'
 export { default as CardSubtitle } from './CardSubtitle'
 export { default as CardText } from './CardText'
 export { default as CardTitle } from './CardTitle'
+export { default as Form } from './Form'
+export { default as FormFeedback } from './FormFeedback'
+export { default as FormGroup } from './FormGroup'
