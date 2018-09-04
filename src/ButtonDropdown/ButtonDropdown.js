@@ -16,8 +16,8 @@ const propTypes = {
 class ButtonDropdown extends Component { 
   return (
     <Dropdown group {...props} />
-  );
-};
+  )
+}
 
 ButtonDropdown.propTypes = propTypes
 
