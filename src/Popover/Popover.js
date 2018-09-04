@@ -52,7 +52,7 @@ const defaultProps = {
   toggle: () => {},
 }
 
-class Popover extends React.Component {
+class Popover extends Component {
   constructor(props) {
     super(props)
 

@@ -2,6 +2,7 @@
 
 ## DONE
 
+- Alert
 - Badge
 - Breadcrumb
 - BreadcrumbItem
@@ -60,10 +61,10 @@
 - Table
 - Tooltip
 - Utils
+- Fade
 
 ## TODO
 
-- Alert
 - Badge
 - Breadcrumb
 - BreadcrumbItem
@@ -98,7 +99,6 @@
 - DropdownItem
 - DropdownMenu
 - DropdownToggle
-- Fade
 - Form
 - FormFeedback
 - FormGroup

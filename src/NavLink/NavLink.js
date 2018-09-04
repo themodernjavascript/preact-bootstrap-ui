@@ -23,7 +23,7 @@ const defaultProps = {
   tag: 'a',
 }
 
-class NavLink extends React.Component {
+class NavLink extends Component {
   constructor(props) {
     super(props)
 
