@@ -61,16 +61,17 @@
 - Table
 - Tooltip
 - Utils
-- Fade
+
+- DropdownItem
+- Dropdown
+- DropdownToggle
+- DropdownMenu
+- ButtonGroup
 
 ## TODO
 
-- Badge
-- Breadcrumb
-- BreadcrumbItem
-- Button
+- Fade
 - ButtonDropdown
-- ButtonGroup
 - ButtonToolbar
 - Card
 - CardBlock
@@ -95,10 +96,6 @@
 - Collapse
 - Container
 - CustomInput
-- Dropdown
-- DropdownItem
-- DropdownMenu
-- DropdownToggle
 - Form
 - FormFeedback
 - FormGroup

@@ -134,7 +134,7 @@ export const TransitionTimeouts = {
   Carousel: 600 // $carousel-transition
 };
 
-// Duplicated Transition.propType keys to ensure that Reactstrap builds
+// Duplicated Transition.propType keys to ensure that preact-bootstrap-ui builds
 // for distribution properly exclude these keys for nested child HTML attributes
 // since `react-transition-group` removes propTypes in production builds.
 export const TransitionPropTypeKeys = [
