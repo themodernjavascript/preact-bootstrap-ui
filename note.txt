@@ -1,7 +1,7 @@
 =============================================
 export { default } from './'
 
-import { 
+import {
   h, 
   render, 
   Component 
@@ -131,3 +131,34 @@ UncontrolledDropdown
 UncontrolledNavDropdown
 UncontrolledTooltip
 =============================================
+
+import { h } from 'preact'
+import style from './style'
+import Code from 'preact-prism'
+import 'prismjs/themes/prism-twilight.css'
+import './../../style/index.css'
+
+import { Jumbotron } from 'preact-bootstrap-ui'
+
+const code = `.container {
+  position: relative;
+  height: 100%;
+}
+
+.inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}`
+
+const Home = () => (
+  <div class={style.home}>
+    <Code code={code} language="javascript" />
+    <Jumbotron tag="section" className="jumbotron-header text-center mb-3">
+      Hello
+    </Jumbotron>
+  </div>
+)
+
+export default Home

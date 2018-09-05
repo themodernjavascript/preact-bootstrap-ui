@@ -54,6 +54,8 @@ export { default as TabContent } from './TabContent'
 export { default as TabPane } from './TabPane'
 export { default as Table } from './Table'
 export { default as Tooltip } from './Tooltip'
+export { default as Container } from './Container'
+export { default as Col } from './Col'
 
 export { default as Alert } from './Alert'
 export { default as ButtonDropdown } from './ButtonDropdown'
