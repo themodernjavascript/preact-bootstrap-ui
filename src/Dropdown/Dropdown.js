@@ -83,7 +83,7 @@ class Dropdown extends Component {
   }
 
   getContainer() {
-    return ReactDOM.findDOMNode(this)
+    return this.base
   }
 
   addEvents() {

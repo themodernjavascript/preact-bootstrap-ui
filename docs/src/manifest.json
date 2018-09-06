@@ -1,6 +1,6 @@
 {
-  "name": "docs",
-  "short_name": "docs",
+  "name": "Preact Bootstrap UI",
+  "short_name": "Preact Bootstrap UI",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
