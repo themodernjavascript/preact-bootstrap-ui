@@ -34,14 +34,14 @@ class DropdownItem extends Component {
   constructor(props) {
     super(props);
 
-    this.onClick = this.onClick.bind(this);
-    this.getTabIndex = this.getTabIndex.bind(this);
+    this.onClick = this.onClick.bind(this)
+    this.getTabIndex = this.getTabIndex.bind(this)
   }
 
   onClick(e) {
     if (this.props.disabled || this.props.header || this.props.divider) {
       e.preventDefault()
-      return
+      return;
     }
 
     if (this.props.onClick) {
@@ -62,8 +62,7 @@ class DropdownItem extends Component {
   }
 
   render() {
-    const tabIndex = this.getTabIndex()
-
+    const tabIndex = this.getTabIndex();
     let {
       className,
       cssModule,
@@ -71,7 +70,8 @@ class DropdownItem extends Component {
       tag: Tag,
       header,
       active,
-      ...props } = omit(this.props, ['toggle'])
+      ...props 
+    } = omit(this.props, ['toggle'])
 
     const classes = mapToCssModules(classNames(
       className,
@@ -96,7 +96,7 @@ class DropdownItem extends Component {
 
     return (
       <Tag
-        type={(Tag === 'button' && (props.onClick || props.toggle)) ? 'button' : undefined}
+        type={(Tag === 'button' && (props.onClick || this.props.toggle)) ? 'button' : undefined}
         {...props}
         tabIndex={tabIndex}
         className={classes}

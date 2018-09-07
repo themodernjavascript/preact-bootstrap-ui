@@ -15,7 +15,6 @@ export default class Example extends Component {
     this.setState({
       dropdownOpen: !this.state.dropdownOpen
     })
-    console.log(this.state.dropdownOpen)
   }
 
   render() {

@@ -35,10 +35,10 @@
     "lodash.isfunction": "^3.0.9",
     "lodash.isobject": "^3.0.2",
     "lodash.tonumber": "^4.0.3",
+    "popper.js": "^1.14.4",
     "preact-compat": "^3.18.4",
     "preact-transition-group": "^1.1.1",
     "proptypes": "^1.1.0",
-    "react-popper": "^0.10.4",
     "react-transition-group": "^2.4.0"
   }
 }

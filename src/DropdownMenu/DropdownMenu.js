@@ -7,7 +7,7 @@ import {
 import PropTypes from 'proptypes'
 import classNames from 'classnames'
 import { mapToCssModules } from './../Utils'
-import { Popper } from 'react-popper'
+// import { Popper } from 'react-popper'
 
 const propTypes = {
   tag: PropTypes.string,
@@ -40,28 +40,27 @@ const directionPositionMap = {
   down: 'bottom',
 }
 
-// const DropdownMenu = (props, context) => {
 class DropdownMenu extends Component {
-  render(props, context) {
+  render(props) {
     const { className, cssModule, right, tag, flip, modifiers, persist, ...attrs } = props
     const classes = mapToCssModules(classNames(
       className,
       'dropdown-menu',
       {
         'dropdown-menu-right': right,
-        show: context.isOpen,
+        show: this.context.isOpen,
       }
     ), cssModule)
 
     let Tag = tag
 
-    if (persist || (context.isOpen && !context.inNavbar)) {
-      Tag = Popper
+    if (persist || (this.context.isOpen && !this.context.inNavbar)) {
+      // Tag = Popper;
 
-      const position1 = directionPositionMap[context.direction] || 'bottom'
-      const position2 = right ? 'end' : 'start'
+      const position1 = directionPositionMap[this.context.direction] || 'bottom'
+      const position2 = right ? 'end' : 'start';
       attrs.placement = `${position1}-${position2}`
-      attrs.component = tag
+      attrs.component = tag;
       attrs.modifiers = !flip ? {
         ...modifiers,
         ...noFlipModifier,
@@ -73,7 +72,7 @@ class DropdownMenu extends Component {
         tabIndex="-1"
         role="menu"
         {...attrs}
-        aria-hidden={!context.isOpen}
+        aria-hidden={!this.context.isOpen}
         className={classes}
         x-placement={attrs.placement}
       />

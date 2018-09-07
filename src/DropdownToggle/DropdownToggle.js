@@ -7,7 +7,6 @@ import {
 import PropTypes from 'proptypes'
 import classNames from 'classnames'
 import { mapToCssModules } from './../Utils'
-import { Target } from 'react-popper'
 import Button from './../Button'
 
 const propTypes = {
@@ -44,7 +43,7 @@ class DropdownToggle extends Component {
 
   onClick(e) {
     if (this.props.disabled) {
-      e.preventDefault()
+      e.preventDefault();
       return
     }
 
@@ -61,9 +60,7 @@ class DropdownToggle extends Component {
 
   render() {
     const { className, color, cssModule, caret, split, nav, tag, ...props } = this.props
-
     const ariaLabel = props['aria-label'] || 'Toggle Dropdown'
-    
     const classes = mapToCssModules(classNames(
       className,
       {
@@ -72,7 +69,6 @@ class DropdownToggle extends Component {
         'nav-link': nav
       }
     ), cssModule)
-
     const children = props.children || <span className="sr-only">{ariaLabel}</span>
 
     let Tag
@@ -101,7 +97,7 @@ class DropdownToggle extends Component {
     }
 
     return (
-      <Target
+      <Tag
         {...props}
         className={classes}
         component={Tag}

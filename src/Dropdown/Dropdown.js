@@ -10,7 +10,7 @@ import {
 import PropTypes from 'proptypes'
 import classNames from 'classnames'
 import { mapToCssModules, omit, keyCodes, deprecated } from './../Utils'
-import { Manager } from 'react-popper'
+import PopperJS from 'popper.js'
 
 const propTypes = {
   disabled: PropTypes.bool,
@@ -50,7 +50,7 @@ const childContextTypes = {
 
 class Dropdown extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.addEvents = this.addEvents.bind(this)
     this.handleDocumentClick = this.handleDocumentClick.bind(this)
@@ -95,7 +95,7 @@ class Dropdown extends Component {
   removeEvents() {
     ['click', 'touchstart', 'keyup'].forEach(event =>
       document.removeEventListener(event, this.handleDocumentClick, true)
-    );
+    )
   }
 
   handleDocumentClick(e) {
@@ -127,7 +127,7 @@ class Dropdown extends Component {
 
     if (e.which === keyCodes.esc || !this.props.isOpen) {
       this.toggle(e)
-      container.querySelector('[aria-expanded]').focus()
+      container.querySelector('[aria-expanded]').focus();
       return
     }
 
@@ -143,7 +143,7 @@ class Dropdown extends Component {
     const charPressed = String.fromCharCode(e.which).toLowerCase()
 
     for (let i = 0; i < items.length; i += 1) {
-      const firstLetter = items[i].textContent && items[i].textContent[0].toLowerCase();
+      const firstLetter = items[i].textContent && items[i].textContent[0].toLowerCase()
       if (firstLetter === charPressed || items[i] === e.target) {
         index = i
         break
@@ -160,7 +160,7 @@ class Dropdown extends Component {
 
 
     if (index < 0) {
-      index = 0;
+      index = 0
     }
 
     items[index].focus()
@@ -202,15 +202,12 @@ class Dropdown extends Component {
     attrs.tag = attrs.tag || (nav ? 'li' : 'div')
 
     let subItemIsActive = false
-    
     // if (setActiveFromChild) {
-
-    //   React.Children.map(props.children[1].props.children,
+    //   React.Children.map(this.props.children[1].props.children,
     //     (dropdownItem) => {
-    //       if (dropdownItem.props.active) subItemIsActive = true;
+    //       if (dropdownItem.props.active) subItemIsActive = true
     //     }
     //   )
-
     // }
 
     const classes = mapToCssModules(classNames(
@@ -228,7 +225,21 @@ class Dropdown extends Component {
       }
     ), cssModule)
 
-    return <Manager {...attrs} className={classes} onKeyDown={this.handleKeyDown} />
+    return (
+      <div>
+        <div
+          ref={(el) => (this.content = el)}
+        >
+          {this.props.children[0]}
+        </div>
+        <div
+          ref={(el) => (this.popper = el)}
+          className={classes}
+        >
+          {this.props.children[1]}
+        </div>
+      </div>
+    )
   }
 }
 
