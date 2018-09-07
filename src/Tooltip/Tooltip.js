@@ -186,7 +186,8 @@ class Tooltip extends Component {
       let triggers = this.props.trigger.split(' ')
       if (triggers.indexOf('manual') === -1) {
         if (triggers.indexOf('click') > -1) {
-          ['click', 'touchstart'].forEach(event =>
+          const events = ['click', 'touchstart']
+          events.forEach(event =>
             document.addEventListener(event, this.handleDocumentClick, true)
           );
         }
@@ -206,7 +207,8 @@ class Tooltip extends Component {
       this._target.addEventListener('keydown', this.onEscKeyDown, true)
       this._target.addEventListener('focusin', this.show, true)
       this._target.addEventListener('focusout', this.hide, true)
-      ['click', 'touchstart'].forEach(event =>
+      const events = ['click', 'touchstart']
+      events.forEach(event =>
         document.addEventListener(event, this.handleDocumentClick, true)
       )
     }
@@ -219,7 +221,8 @@ class Tooltip extends Component {
     this._target.addEventListener('focusin', this.show, true)
     this._target.addEventListener('focusout', this.hide, true)
 
-    ['click', 'touchstart'].forEach(event =>
+    const events = ['click', 'touchstart']
+    events.forEach(event =>
       document.removeEventListener(event, this.handleDocumentClick, true)
     )
   }
