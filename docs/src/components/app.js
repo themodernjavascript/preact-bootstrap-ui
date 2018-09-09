@@ -6,7 +6,8 @@ import Footer from './footer'
 
 // Code-splitting is automated for routes
 import Home from '../routes/home'
-import Components from '../routes/components'
+import Alerts from '../routes/alerts'
+import Badge from '../routes/badge'
 
 export default class App extends Component {
 	
@@ -24,8 +25,8 @@ export default class App extends Component {
 				<Header />
 				<Router onChange={this.handleRoute}>
 					<Home path="/" />
-					<Components path="/components/" user="alerts" />
-					<Components path="/components/:component" />
+					<Alerts path="/components/alerts" />
+					<Badge path="/components/badge" />
 				</Router>
 				<Footer />
 			</div>

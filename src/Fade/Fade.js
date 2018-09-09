@@ -7,10 +7,24 @@ import {
 import PropTypes from 'proptypes'
 import classNames from 'classnames'
 import { mapToCssModules, omit, pick, TransitionPropTypeKeys, TransitionTimeouts } from './../Utils'
-import Transition from 'react-transition-group/Transition'
+import PreactCSSTransitionGroup from 'preact-css-transition-group'
+
+var style = `.randomTransition-leave {
+  animation: fadeOut 500ms ease forwards 1;
+}
+@keyframes fadeOut {
+  100% { opacity: 0; }
+}
+
+.randomTransition-enter {
+  animation: fadeIn 500ms ease forwards 1;
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+}`
 
 const propTypes = {
-  ...Transition.propTypes,
+  // ...Transition.propTypes,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
@@ -28,7 +42,7 @@ const propTypes = {
 }
 
 const defaultProps = {
-  ...Transition.defaultProps,
+  // ...Transition.defaultProps,
   tag: 'div',
   baseClass: 'fade',
   baseClassActive: 'show',
@@ -66,22 +80,24 @@ class Fade extends Component {
     const transitionProps = pick(otherProps, TransitionPropTypeKeys)
     const childProps = omit(otherProps, TransitionPropTypeKeys)
 
+    const isActive = status === 'entered';
+    const classes = mapToCssModules(classNames(
+      className,
+      baseClass,
+      isActive && baseClassActive
+    ), cssModule)
+
     return (
-      <Transition {...transitionProps}>
-        {(status) => {
-          const isActive = status === 'entered';
-          const classes = mapToCssModules(classNames(
-            className,
-            baseClass,
-            isActive && baseClassActive
-          ), cssModule)
-          return (
-            <Tag className={classes} {...childProps} ref={innerRef}>
-              {children}
-            </Tag>
-          )
-        }}
-      </Transition>
+      <div>
+        <style>{style}</style>
+        <PreactCSSTransitionGroup 
+          transitionName="randomTransition"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}
+        >
+          {props.in ? <div key="randomComponent">{children}</div> : <Tag className={classes}>{children}</Tag> }
+        </PreactCSSTransitionGroup>
+      </div>
     )
   }
 }

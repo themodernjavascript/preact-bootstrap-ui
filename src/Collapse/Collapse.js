@@ -6,11 +6,55 @@ import {
 
 import PropTypes from 'proptypes'
 import classNames from 'classnames'
-import Transition from 'react-transition-group/Transition'
 import { mapToCssModules, omit, pick, TransitionTimeouts, TransitionPropTypeKeys, TransitionStatuses } from './../Utils'
 
+import PreactCSSTransitionGroup from 'preact-css-transition-group'
+
+// import Transition from 'react-transition-group/Transition'
+
+var style = `.container {
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+}
+.animation-container {
+  display: inline-block;
+}
+.item {
+  background-color: $color3;
+  width: 400px;
+  text-align: center;
+  padding: 10px 5px;
+  margin-top: 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: mix(black, $color3, 60%);
+  position: relative;
+  
+  &:hover {
+    cursor: pointer;
+  }
+}
+div > .item {
+  margin-top: 0px;
+}
+.example-enter {
+  top: -240px;
+}
+.example-enter.example-enter-active {
+  top: 0px;
+  transition: top 1s ease;
+}
+.example-leave {
+  top: 0px;
+  transition: top 1s ease;
+}
+.example-leave.example-leave-active {
+  top: -240px;
+}`
+
 const propTypes = {
-  ...Transition.propTypes,
+  // ...Transition.propTypes,
   isOpen: PropTypes.bool,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
@@ -28,7 +72,7 @@ const propTypes = {
 }
 
 const defaultProps = {
-  ...Transition.defaultProps,
+  // ...Transition.defaultProps,
   isOpen: false,
   appear: false,
   enter: true,
@@ -121,36 +165,27 @@ class Collapse extends Component {
     // element which results in errors/warnings for non-valid attributes.
     const transitionProps = pick(otherProps, TransitionPropTypeKeys)
     const childProps = omit(otherProps, TransitionPropTypeKeys)
+
+    let collapseClass = getTransitionClass(status)
+    const classes = mapToCssModules(classNames(
+      className,
+      collapseClass,
+      navbar && 'navbar-collapse'
+    ), cssModule)
+    const style = height === null ? null : { height }
+
+    console.log(isOpen)
     return (
-      <Transition
-        {...transitionProps}
-        in={isOpen}
-        onEntering={this.onEntering}
-        onEntered={this.onEntered}
-        onExit={this.onExit}
-        onExiting={this.onExiting}
-        onExited={this.onExited}
-      >
-        {(status) => {
-          let collapseClass = getTransitionClass(status);
-          const classes = mapToCssModules(classNames(
-            className,
-            collapseClass,
-            navbar && 'navbar-collapse'
-          ), cssModule);
-          const style = height === null ? null : { height };
-          return (
-            <Tag
-              {...childProps}
-              style={{ ...childProps.style, ...style }}
-              className={classes}
-              ref={props.innerRef}
-            >
-              {children}
-            </Tag>
-          );
-        }}
-      </Transition>
+      <div>
+        <style>{style}</style>
+        <PreactCSSTransitionGroup 
+          transitionName="example"
+        >
+          <div key="item" className="item">
+            {isOpen ? {children} : ''}
+          </div>
+        </PreactCSSTransitionGroup>
+      </div>
     )
   }
 }

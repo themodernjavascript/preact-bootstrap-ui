@@ -25,7 +25,7 @@ const defaultProps = {
 
 class Badge extends Component { 
   render(props) {
-    const {
+    let {
       className,
       cssModule,
       color,

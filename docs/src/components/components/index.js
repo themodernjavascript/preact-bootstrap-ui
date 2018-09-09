@@ -1,27 +1,118 @@
 import { h } from 'preact'
 import { Link } from 'preact-router/match'
-import { Container, Row, Col, Nav, NavItem, NavLink } from 'preact-bootstrap-ui'
+import Content from './../UI/Content';
 
-function Content({ items, children, title }) {
+const items = [
+  {
+    name: 'Alerts',
+    to: '/components/alerts/'
+  },
+  {
+    name: 'Badge',
+    to: '/components/badge/'
+  },
+  {
+    name: 'Breadcrumbs',
+    to: '/components/breadcrumbs/'
+  },
+  {
+    name: 'Buttons',
+    to: '/components/buttons/'
+  },
+  {
+    name: 'Button Dropdown',
+    to: '/components/button-dropdown/'
+  },
+  {
+    name: 'Button Group',
+    to: '/components/button-group/'
+  },
+  {
+    name: 'Card',
+    to: '/components/card/'
+  },
+  {
+    name: 'Collapse',
+    to: '/components/collapse/',
+  },
+  {
+    name: 'Carousel',
+    to: '/components/carousel/'
+  },
+  {
+    name: 'Dropdowns',
+    to: '/components/dropdowns/'
+  },
+  {
+    name: 'Fade',
+    to: '/components/fade/'
+  },
+  {
+    name: 'Form',
+    to: '/components/form/'
+  },
+  {
+    name: 'Input Group',
+    to: '/components/input-group/'
+  },
+  {
+    name: 'Jumbotron',
+    to: '/components/jumbotron/'
+  },
+  {
+    name: 'Layout',
+    to: '/components/layout/'
+  },
+  {
+    name: 'List Group',
+    to: '/components/listgroup/'
+  },
+  {
+    name: 'Media',
+    to: '/components/media/'
+  },
+  {
+    name: 'Modals',
+    to: '/components/modals/'
+  },
+  {
+    name: 'Navbar',
+    to: '/components/navbar/'
+  },
+  {
+    name: 'Navs',
+    to: '/components/navs/'
+  },
+  {
+    name: 'Pagination',
+    to: '/components/pagination/'
+  },
+  {
+    name: 'Popovers',
+    to: '/components/popovers/'
+  },
+  {
+    name: 'Progress',
+    to: '/components/progress/'
+  },
+  {
+    name: 'Tables',
+    to: '/components/tables/'
+  },
+  {
+    name: 'Tabs',
+    to: '/components/tabs/'
+  },
+  {
+    name: 'Tooltips',
+    to: '/components/tooltips/'
+  }
+]
+
+function Components(props) {
   return (
-    <Container className="content">
-      <Row>
-        <Col tag="main" md={{ size: 3, order: 2 }}>
-          <div className="docs-sidebar mb-3">
-            <h1 className="h5">{title}</h1>
-            <Nav className="flex-column">
-              {items.map(item => (
-                <Link href={item.to}>{item.name}</Link>
-              ))}
-            </Nav>
-          </div>
-        </Col>
-        <Col tag="aside" md={{ size: 9, order: 1 }} className="docSearch-content">
-          {children}
-        </Col>
-      </Row>
-    </Container>
+    <Content title="Components" items={items} {...props} />
   );
 }
 
-export default Content
+export default Components
