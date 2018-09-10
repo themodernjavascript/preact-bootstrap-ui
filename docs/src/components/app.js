@@ -6,8 +6,8 @@ import Footer from './footer'
 
 // Code-splitting is automated for routes
 import Home from '../routes/home'
-import Alerts from '../routes/alerts'
 import Badge from '../routes/badge'
+import Breadcrumbs from '../routes/breadcrumbs'
 
 export default class App extends Component {
 	
@@ -25,8 +25,8 @@ export default class App extends Component {
 				<Header />
 				<Router onChange={this.handleRoute}>
 					<Home path="/" />
-					<Alerts path="/components/alerts" />
 					<Badge path="/components/badge" />
+					<Breadcrumbs path="/components/breadcrumbs" />
 				</Router>
 				<Footer />
 			</div>
