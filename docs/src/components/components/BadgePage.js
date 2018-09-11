@@ -1,7 +1,7 @@
 /* eslint react/no-multi-comp: 0, react/prop-types: 0 */
 import { h, Component } from 'preact'
 import PageTitle from './../common/PageTitle'
-import SectionTitle from './../common/SectionTitle';
+import SectionTitle from './../common/SectionTitle'
 import 'prismjs/themes/prism-twilight.css'
 import Code from 'preact-prism'
 

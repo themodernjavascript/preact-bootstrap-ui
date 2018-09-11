@@ -18,6 +18,11 @@ function ComponentNavbar() {
               Breadcrumbs
             </NavLink>
           </NavItem>
+          <NavItem>
+            <NavLink tag={Link} to={'/components/buttons'} activeClassName="active">
+              Buttons
+            </NavLink>
+          </NavItem>
         </Nav>
       </div>
     </Col>

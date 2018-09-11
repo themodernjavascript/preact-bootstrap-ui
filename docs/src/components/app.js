@@ -8,6 +8,7 @@ import Footer from './footer'
 import Home from '../routes/home'
 import Badge from '../routes/badge'
 import Breadcrumbs from '../routes/breadcrumbs'
+import Buttons from '../routes/buttons'
 
 export default class App extends Component {
 	
@@ -27,6 +28,7 @@ export default class App extends Component {
 					<Home path="/" />
 					<Badge path="/components/badge" />
 					<Breadcrumbs path="/components/breadcrumbs" />
+					<Buttons path="/components/buttons" />
 				</Router>
 				<Footer />
 			</div>
