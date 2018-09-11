@@ -23,6 +23,11 @@ function ComponentNavbar() {
               Buttons
             </NavLink>
           </NavItem>
+          <NavItem>
+            <NavLink tag={Link} to={'/components/card'} activeClassName="active">
+              Card
+            </NavLink>
+          </NavItem>
         </Nav>
       </div>
     </Col>
