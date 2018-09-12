@@ -22,6 +22,24 @@ const CardHeaderFooterExampleSource = require('!!raw-loader!./../examples/CardHe
 import CardImageCapsExample from './../examples/CardImageCaps'
 const CardImageCapsExampleSource = require('!!raw-loader!./../examples/CardImageCaps')
 
+import CardImageOverlayExample from './../examples/CardImageOverlay'
+const CardImageOverlayExampleSource = require('!!raw-loader!./../examples/CardImageOverlay')
+
+import CardBackgroundsExample from './../examples/CardBackgrounds'
+const CardBackgroundsExampleSource = require('!!raw-loader!./../examples/CardBackgrounds')
+
+import CardOutlineExample from './../examples/CardOutline'
+const CardOutlineExampleSource = require('!!raw-loader!./../examples/CardOutline')
+
+import CardGroupsExample from './../examples/CardGroups'
+const CardGroupsExampleSource = require('!!raw-loader!./../examples/CardGroups')
+
+import CardDecksExample from './../examples/CardDecks'
+const CardDecksExampleSource = require('!!raw-loader!./../examples/CardDecks')
+
+import CardColumnsExample from './../examples/CardColumns'
+const CardColumnsExampleSource = require('!!raw-loader!./../examples/CardColumns')
+
 const properties = `Card.propTypes = {
   // Pass in a Component to override default element
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
@@ -144,6 +162,36 @@ export default class CardPage extends Component {
         <div className="docs-example">
           <CardImageCapsExample />
           <Code language="javascript">{CardImageCapsExampleSource}</Code>
+        </div>
+        <SectionTitle>Image overlays</SectionTitle>
+        <div className="docs-example">
+          <CardImageOverlayExample />
+          <Code language="javascript">{CardImageOverlayExampleSource}</Code>
+        </div>
+        <SectionTitle>Background variants</SectionTitle>
+        <div className="docs-example">
+          <CardBackgroundsExample />
+          <Code language="javascript">{CardBackgroundsExampleSource}</Code>
+        </div>
+        <SectionTitle>Outline variants</SectionTitle>
+        <div className="docs-example">
+          <CardOutlineExample />
+          <Code language="javascript">{CardOutlineExampleSource}</Code>
+        </div>
+        <SectionTitle>Groups</SectionTitle>
+        <div className="docs-example">
+          <CardGroupsExample />
+          <Code language="javascript">{CardGroupsExampleSource}</Code>
+        </div>
+        <SectionTitle>Decks</SectionTitle>
+        <div className="docs-example">
+          <CardDecksExample />
+          <Code language="javascript">{CardDecksExampleSource}</Code>
+        </div>
+        <SectionTitle>Columns</SectionTitle>
+        <div className="docs-example">
+          <CardColumnsExample />
+          <Code language="javascript">{CardColumnsExampleSource}</Code>
         </div>
       </div>
     )
