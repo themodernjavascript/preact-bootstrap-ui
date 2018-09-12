@@ -10,6 +10,7 @@ import Badge from '../routes/badge'
 import Breadcrumbs from '../routes/breadcrumbs'
 import Buttons from '../routes/buttons'
 import Card from '../routes/card'
+import Jumbotron from '../routes/jumbotron'
 
 export default class App extends Component {
 	
@@ -31,6 +32,7 @@ export default class App extends Component {
 					<Breadcrumbs path="/components/breadcrumbs" />
 					<Buttons path="/components/buttons" />
 					<Card path="/components/card" />
+					<Jumbotron path="/components/jumbotron" />
 				</Router>
 				<Footer />
 			</div>
