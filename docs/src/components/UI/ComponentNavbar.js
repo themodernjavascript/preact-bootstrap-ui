@@ -28,6 +28,21 @@ function ComponentNavbar() {
               Card
             </NavLink>
           </NavItem>
+          <NavItem>
+            <NavLink tag={Link} to={'/components/jumbotron'} activeClassName="active">
+              Jumbotron
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink tag={Link} to={'/components/layout'} activeClassName="active">
+              Layout
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink tag={Link} to={'/components/layout'} activeClassName="active">
+              List Group
+            </NavLink>
+          </NavItem>
         </Nav>
       </div>
     </Col>
