@@ -16,6 +16,15 @@ const ListGroupDisabledItemsExampleSource = require('!!raw-loader!./../examples/
 import ListGroupAnchorsAndButtonsExample from './../examples/ListGroupAnchorsAndButtons'
 const ListGroupAnchorsAndButtonsExampleSource = require('!!raw-loader!./../examples/ListGroupAnchorsAndButtons')
 
+import ListGroupContextualClassesExample from './../examples/ListGroupContextualClasses'
+const ListGroupContextualClassesExampleSource = require('!!raw-loader!./../examples/ListGroupContextualClasses')
+
+import ListGroupCustomContentExample from './../examples/ListGroupCustomContent'
+const ListGroupCustomContentExampleSource = require('!!raw-loader!./../examples/ListGroupCustomContent')
+
+import ListGroupFlushExample from './../examples/ListGroupFlush'
+const ListGroupFlushExampleSource = require('!!raw-loader!./../examples/ListGroupFlush')
+
 const properties = `ListGroup.propTypes = {
     tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
     // boolean to render list group items edge-to-edge in a parent container
@@ -51,6 +60,21 @@ export default class ListGroupPage extends Component {
           <p>Note: you need add action props to make these buttons fit the list.</p>
           <ListGroupAnchorsAndButtonsExample />
           <Code language="javascript">{ListGroupAnchorsAndButtonsExampleSource}</Code>
+        </div>
+        <legend>Contextual classes</legend>
+        <div className="docs-example">
+          <ListGroupContextualClassesExample />
+          <Code language="javascript">{ListGroupContextualClassesExampleSource}</Code>
+        </div>
+        <legend>Custom content</legend>
+        <div className="docs-example">
+          <ListGroupCustomContentExample />
+          <Code language="javascript">{ListGroupCustomContentExampleSource}</Code>
+        </div>
+        <legend>Flush</legend>
+        <div className="docs-example">
+          <ListGroupFlushExample />
+          <Code language="javascript">{ListGroupFlushExampleSource}</Code>
         </div>
       </div>
     )
