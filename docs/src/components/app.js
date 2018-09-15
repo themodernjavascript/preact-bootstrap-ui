@@ -13,6 +13,7 @@ import Card from '../routes/card'
 import Jumbotron from '../routes/jumbotron'
 import Layout from '../routes/layout'
 import ListGroup from '../routes/listgroup'
+import Pagination from '../routes/pagination'
 
 export default class App extends Component {
 	
@@ -37,6 +38,7 @@ export default class App extends Component {
 					<Jumbotron path="/components/jumbotron" />
 					<Layout path="/components/layout" />
 					<ListGroup path="/components/listgroup" />
+					<Pagination path="/components/pagination" />
 				</Router>
 				<Footer />
 			</div>

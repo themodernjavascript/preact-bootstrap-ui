@@ -43,6 +43,11 @@ function ComponentNavbar() {
               List Group
             </NavLink>
           </NavItem>
+          <NavItem>
+            <NavLink tag={Link} to={'/components/pagination'} activeClassName="active">
+              Pagination
+            </NavLink>
+          </NavItem>
         </Nav>
       </div>
     </Col>
