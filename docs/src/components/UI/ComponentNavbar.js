@@ -48,6 +48,11 @@ function ComponentNavbar() {
               Pagination
             </NavLink>
           </NavItem>
+          <NavItem>
+            <NavLink tag={Link} to={'/components/progress'} activeClassName="active">
+              Progress
+            </NavLink>
+          </NavItem>
         </Nav>
       </div>
     </Col>

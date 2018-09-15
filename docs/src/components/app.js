@@ -14,6 +14,7 @@ import Jumbotron from '../routes/jumbotron'
 import Layout from '../routes/layout'
 import ListGroup from '../routes/listgroup'
 import Pagination from '../routes/pagination'
+import Progress from '../routes/progress'
 
 export default class App extends Component {
 	
@@ -39,6 +40,7 @@ export default class App extends Component {
 					<Layout path="/components/layout" />
 					<ListGroup path="/components/listgroup" />
 					<Pagination path="/components/pagination" />
+					<Progress path="/components/progress" />
 				</Router>
 				<Footer />
 			</div>
