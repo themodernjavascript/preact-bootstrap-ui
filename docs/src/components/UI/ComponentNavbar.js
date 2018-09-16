@@ -53,6 +53,16 @@ function ComponentNavbar() {
               Progress
             </NavLink>
           </NavItem>
+          <NavItem>
+            <NavLink tag={Link} to={'/components/tables'} activeClassName="active">
+              Tables
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink tag={Link} to={'/components/tabs'} activeClassName="active">
+              Tabs
+            </NavLink>
+          </NavItem>
         </Nav>
       </div>
     </Col>

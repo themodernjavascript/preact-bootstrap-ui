@@ -16,6 +16,7 @@ import ListGroup from '../routes/listgroup'
 import Pagination from '../routes/pagination'
 import Progress from '../routes/progress'
 import Tables from '../routes/tables'
+import Tabs from '../routes/tabs'
 
 export default class App extends Component {
 	
@@ -43,6 +44,7 @@ export default class App extends Component {
 					<Pagination path="/components/pagination" />
 					<Progress path="/components/progress" />
 					<Tables path="/components/tables" />
+					<Tabs path="/components/tabs" />
 				</Router>
 				<Footer />
 			</div>
