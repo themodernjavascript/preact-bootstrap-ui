@@ -19,6 +19,15 @@ const TableBorderedExampleSource = require('!!raw-loader!./../examples/TableBord
 import TableBorderlessExample from './../examples/TableBorderless'
 const TableBorderlessExampleSource = require('!!raw-loader!./../examples/TableBorderless')
 
+import TableHoverExample from './../examples/TableHover'
+const TableHoverExampleSource = require('!!raw-loader!./../examples/TableHover')
+
+import TableSizingExample from './../examples/TableSizing'
+const TableSizingExampleSource = require('!!raw-loader!./../examples/TableSizing')
+
+import TableResponsiveExample from './../examples/TableResponsive'
+const TableResponsiveExampleSource = require('!!raw-loader!./../examples/TableResponsive')
+
 const properties = `Table.propTypes = {
 // Pass in a Component to override default element
 tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
@@ -62,6 +71,21 @@ export default class TablesPage extends Component {
         <div className="docs-example">
           <TableBorderlessExample />
           <Code language="javascript">{TableBorderlessExampleSource}</Code>
+        </div>
+        <SectionTitle>Hoverable rows</SectionTitle>
+        <div className="docs-example">
+          <TableHoverExample />
+          <Code language="javascript">{TableHoverExampleSource}</Code>
+        </div>
+        <SectionTitle>Small table</SectionTitle>
+        <div className="docs-example">
+          <TableSizingExample />
+          <Code language="javascript">{TableSizingExampleSource}</Code>
+        </div>
+        <SectionTitle>Responsive table</SectionTitle>
+        <div className="docs-example">
+          <TableResponsiveExample />
+          <Code language="javascript">{TableResponsiveExampleSource}</Code>
         </div>
       </div>
     )
