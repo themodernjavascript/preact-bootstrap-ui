@@ -12,21 +12,21 @@
 * Progress
 * Tables
 * Tabs
+* Fade
 
 ## TODO
 
-* Alerts
 * Button Dropdown
+* Modals
+* Alerts
 * Button Group
 * Collapse
 * Carousel
 * Dropdowns
-* Fade
 * Form
 * Input Group
 * List Group
 * Media
-* Modals
 * Navs
 * Popovers
 * Tables
