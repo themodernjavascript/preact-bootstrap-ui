@@ -1,12 +1,7 @@
-import { 
-  h, 
-  render, 
-  Component 
-} from 'preact'
-
-import PropTypes from 'proptypes'
+import { h, Component } from 'preact'
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import { mapToCssModules, omit } from './../Utils'
+import { mapToCssModules, omit } from '../Utils'
 
 const propTypes = {
   children: PropTypes.node,
@@ -19,46 +14,46 @@ const propTypes = {
   className: PropTypes.string,
   cssModule: PropTypes.object,
   toggle: PropTypes.bool
-}
+};
 
 const contextTypes = {
   toggle: PropTypes.func
-}
+};
 
 const defaultProps = {
   tag: 'button',
   toggle: true
-}
+};
 
 class DropdownItem extends Component {
   constructor(props) {
     super(props);
 
-    this.onClick = this.onClick.bind(this)
-    this.getTabIndex = this.getTabIndex.bind(this)
+    this.onClick = this.onClick.bind(this);
+    this.getTabIndex = this.getTabIndex.bind(this);
   }
 
   onClick(e) {
     if (this.props.disabled || this.props.header || this.props.divider) {
-      e.preventDefault()
+      e.preventDefault();
       return;
     }
 
     if (this.props.onClick) {
-      this.props.onClick(e)
+      this.props.onClick(e);
     }
 
     if (this.props.toggle) {
-      this.context.toggle(e)
+      this.context.toggle(e);
     }
   }
 
   getTabIndex() {
     if (this.props.disabled || this.props.header || this.props.divider) {
-      return '-1'
+      return '-1';
     }
 
-    return '0'
+    return '0';
   }
 
   render() {
@@ -70,8 +65,7 @@ class DropdownItem extends Component {
       tag: Tag,
       header,
       active,
-      ...props 
-    } = omit(this.props, ['toggle'])
+      ...props } = omit(this.props, ['toggle']);
 
     const classes = mapToCssModules(classNames(
       className,
@@ -82,15 +76,15 @@ class DropdownItem extends Component {
         'dropdown-header': header,
         'dropdown-divider': divider
       }
-    ), cssModule)
+    ), cssModule);
 
     if (Tag === 'button') {
       if (header) {
-        Tag = 'h6'
+        Tag = 'h6';
       } else if (divider) {
-        Tag = 'div'
+        Tag = 'div';
       } else if (props.href) {
-        Tag = 'a'
+        Tag = 'a';
       }
     }
 
@@ -102,12 +96,12 @@ class DropdownItem extends Component {
         className={classes}
         onClick={this.onClick}
       />
-    )
+    );
   }
 }
 
-DropdownItem.propTypes = propTypes
-DropdownItem.defaultProps = defaultProps
-DropdownItem.contextTypes = contextTypes
+DropdownItem.propTypes = propTypes;
+DropdownItem.defaultProps = defaultProps;
+DropdownItem.contextTypes = contextTypes;
 
-export default DropdownItem
+export default DropdownItem;

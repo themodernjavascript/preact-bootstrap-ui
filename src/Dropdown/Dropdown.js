@@ -1,16 +1,8 @@
-/* eslint react/no-find-dom-node: 0 */
-// https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-find-dom-node.md
-
-import { 
-  h, 
-  render, 
-  Component 
-} from 'preact'
-
-import PropTypes from 'proptypes'
-import classNames from 'classnames'
-import { mapToCssModules, omit, keyCodes, deprecated } from './../Utils'
-import PopperJS from 'popper.js'
+import { h, Component } from 'preact'
+import PropTypes from 'prop-types'
+import { Manager } from 'react-popper';
+import classNames from 'classnames';
+import { mapToCssModules, omit, keyCodes, deprecated } from '../Utils';
 
 const propTypes = {
   disabled: PropTypes.bool,
@@ -29,7 +21,7 @@ const propTypes = {
   cssModule: PropTypes.object,
   inNavbar: PropTypes.bool,
   setActiveFromChild: PropTypes.bool,
-}
+};
 
 const defaultProps = {
   isOpen: false,
@@ -39,24 +31,24 @@ const defaultProps = {
   addonType: false,
   inNavbar: false,
   setActiveFromChild: false
-}
+};
 
 const childContextTypes = {
   toggle: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
   direction: PropTypes.oneOf(['up', 'down', 'left', 'right']).isRequired,
   inNavbar: PropTypes.bool.isRequired,
-}
+};
 
 class Dropdown extends Component {
   constructor(props) {
     super(props)
 
-    this.addEvents = this.addEvents.bind(this)
-    this.handleDocumentClick = this.handleDocumentClick.bind(this)
-    this.handleKeyDown = this.handleKeyDown.bind(this)
-    this.removeEvents = this.removeEvents.bind(this)
-    this.toggle = this.toggle.bind(this)
+    this.addEvents = this.addEvents.bind(this);
+    this.handleDocumentClick = this.handleDocumentClick.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.removeEvents = this.removeEvents.bind(this);
+    this.toggle = this.toggle.bind(this);
   }
 
   getChildContext() {
@@ -65,7 +57,7 @@ class Dropdown extends Component {
       isOpen: this.props.isOpen,
       direction: (this.props.direction === 'down' && this.props.dropup) ? 'up' : this.props.direction,
       inNavbar: this.props.inNavbar,
-    }
+    };
   }
 
   componentDidMount() {
@@ -99,11 +91,11 @@ class Dropdown extends Component {
   }
 
   handleDocumentClick(e) {
-    if (e && (e.which === 3 || (e.type === 'keyup' && e.which !== keyCodes.tab))) return
-    const container = this.getContainer()
+    if (e && (e.which === 3 || (e.type === 'keyup' && e.which !== keyCodes.tab))) return;
+    const container = this.getContainer();
 
     if (container.contains(e.target) && container !== e.target && (e.type !== 'keyup' || e.which === keyCodes.tab)) {
-      return
+      return;
     }
 
     this.toggle(e)
@@ -127,7 +119,7 @@ class Dropdown extends Component {
 
     if (e.which === keyCodes.esc || !this.props.isOpen) {
       this.toggle(e)
-      container.querySelector('[aria-expanded]').focus();
+      container.querySelector('[aria-expanded]').focus()
       return
     }
 
@@ -182,7 +174,7 @@ class Dropdown extends Component {
     return this.props.toggle(e)
   }
 
-  render(props) {
+  render() {
     const {
       className,
       cssModule,
@@ -195,20 +187,20 @@ class Dropdown extends Component {
       active,
       addonType,
       ...attrs
-    } = omit(props, ['toggle', 'disabled', 'inNavbar', 'direction'])
+    } = omit(this.props, ['toggle', 'disabled', 'inNavbar', 'direction'])
 
-    const direction = (props.direction === 'down' && dropup) ? 'up' : props.direction
+    const direction = (this.props.direction === 'down' && dropup) ? 'up' : this.props.direction
 
     attrs.tag = attrs.tag || (nav ? 'li' : 'div')
 
-    let subItemIsActive = false
-    // if (setActiveFromChild) {
-    //   React.Children.map(this.props.children[1].props.children,
-    //     (dropdownItem) => {
-    //       if (dropdownItem.props.active) subItemIsActive = true
-    //     }
-    //   )
-    // }
+    let subItemIsActive = false;
+    if (setActiveFromChild) {
+      React.Children.map(this.props.children[1].props.children,
+        (dropdownItem) => {
+          if (dropdownItem.props.active) subItemIsActive = true;
+        }
+      )
+    }
 
     const classes = mapToCssModules(classNames(
       className,
@@ -225,21 +217,7 @@ class Dropdown extends Component {
       }
     ), cssModule)
 
-    return (
-      <div>
-        <div
-          ref={(el) => (this.content = el)}
-        >
-          {this.props.children[0]}
-        </div>
-        <div
-          ref={(el) => (this.popper = el)}
-          className={classes}
-        >
-          {this.props.children[1]}
-        </div>
-      </div>
-    )
+    return <Manager {...attrs} className={classes} onKeyDown={this.handleKeyDown} />
   }
 }
 

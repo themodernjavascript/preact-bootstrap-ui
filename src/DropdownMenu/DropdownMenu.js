@@ -1,13 +1,8 @@
-import { 
-  h, 
-  render, 
-  Component 
-} from 'preact'
-
-import PropTypes from 'proptypes'
+import { h, Component} from 'preact'
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import { mapToCssModules } from './../Utils'
-// import { Popper } from 'react-popper'
+import { Popper } from 'react-popper'
+import { mapToCssModules } from '../Utils'
 
 const propTypes = {
   tag: PropTypes.string,
@@ -18,70 +13,68 @@ const propTypes = {
   className: PropTypes.string,
   cssModule: PropTypes.object,
   persist: PropTypes.bool,
-}
+};
 
 const defaultProps = {
   tag: 'div',
   flip: true,
-}
+};
 
 const contextTypes = {
   isOpen: PropTypes.bool.isRequired,
   direction: PropTypes.oneOf(['up', 'down', 'left', 'right']).isRequired,
   inNavbar: PropTypes.bool.isRequired,
-}
+};
 
-const noFlipModifier = { flip: { enabled: false } }
+const noFlipModifier = { flip: { enabled: false } };
 
 const directionPositionMap = {
   up: 'top',
   left: 'left',
   right: 'right',
   down: 'bottom',
-}
+};
 
-class DropdownMenu extends Component {
-  render(props) {
-    const { className, cssModule, right, tag, flip, modifiers, persist, ...attrs } = props
-    const classes = mapToCssModules(classNames(
-      className,
-      'dropdown-menu',
-      {
-        'dropdown-menu-right': right,
-        show: this.context.isOpen,
-      }
-    ), cssModule)
-
-    let Tag = tag
-
-    if (persist || (this.context.isOpen && !this.context.inNavbar)) {
-      // Tag = Popper;
-
-      const position1 = directionPositionMap[this.context.direction] || 'bottom'
-      const position2 = right ? 'end' : 'start';
-      attrs.placement = `${position1}-${position2}`
-      attrs.component = tag;
-      attrs.modifiers = !flip ? {
-        ...modifiers,
-        ...noFlipModifier,
-      } : modifiers
+const DropdownMenu = (props, context) => {
+  const { className, cssModule, right, tag, flip, modifiers, persist, ...attrs } = props;
+  const classes = mapToCssModules(classNames(
+    className,
+    'dropdown-menu',
+    {
+      'dropdown-menu-right': right,
+      show: context.isOpen,
     }
+  ), cssModule);
 
-    return (
-      <Tag
-        tabIndex="-1"
-        role="menu"
-        {...attrs}
-        aria-hidden={!this.context.isOpen}
-        className={classes}
-        x-placement={attrs.placement}
-      />
-    )
+  let Tag = tag;
+
+  if (persist || (context.isOpen && !context.inNavbar)) {
+    Tag = Popper;
+
+    const position1 = directionPositionMap[context.direction] || 'bottom';
+    const position2 = right ? 'end' : 'start';
+    attrs.placement = `${position1}-${position2}`;
+    attrs.component = tag;
+    attrs.modifiers = !flip ? {
+      ...modifiers,
+      ...noFlipModifier,
+    } : modifiers;
   }
-}
 
-DropdownMenu.propTypes = propTypes
-DropdownMenu.defaultProps = defaultProps
-DropdownMenu.contextTypes = contextTypes
+  return (
+    <Tag
+      tabIndex="-1"
+      role="menu"
+      {...attrs}
+      aria-hidden={!context.isOpen}
+      className={classes}
+      x-placement={attrs.placement}
+    />
+  );
+};
 
-export default DropdownMenu
+DropdownMenu.propTypes = propTypes;
+DropdownMenu.defaultProps = defaultProps;
+DropdownMenu.contextTypes = contextTypes;
+
+export default DropdownMenu;

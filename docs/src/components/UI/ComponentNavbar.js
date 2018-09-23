@@ -63,6 +63,11 @@ function ComponentNavbar() {
               Tabs
             </NavLink>
           </NavItem>
+          <NavItem>
+            <NavLink tag={Link} to={'/components/fade'} activeClassName="active">
+              Fade
+            </NavLink>
+          </NavItem>
         </Nav>
       </div>
     </Col>
