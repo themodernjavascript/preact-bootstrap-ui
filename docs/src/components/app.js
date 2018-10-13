@@ -19,6 +19,7 @@ import Progress from '../routes/progress'
 import Tables from '../routes/tables'
 import Tabs from '../routes/tabs'
 import Fade from '../routes/fade'
+import ButtonDropdown from '../routes/button-dropdown'
 
 export default class App extends Component {
 	
@@ -49,6 +50,7 @@ export default class App extends Component {
 					<Tables path="/components/tables" />
 					<Tabs path="/components/tabs" />
 					<Fade path="/components/fade" />
+					<ButtonDropdown path="/components/button-dropdown" />
 				</Router>
 				<Footer />
 			</div>
