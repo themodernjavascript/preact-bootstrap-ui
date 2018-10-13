@@ -24,6 +24,16 @@ function ComponentNavbar() {
             </NavLink>
           </NavItem>
           <NavItem>
+            <NavLink tag={Link} to={'/components/button-dropdown'} activeClassName="active">
+              Button Dropdown
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink tag={Link} to={'/components/button-group'} activeClassName="active">
+              Button Group
+            </NavLink>
+          </NavItem>
+          <NavItem>
             <NavLink tag={Link} to={'/components/card'} activeClassName="active">
               Card
             </NavLink>

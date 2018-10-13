@@ -20,6 +20,7 @@ import Tables from '../routes/tables'
 import Tabs from '../routes/tabs'
 import Fade from '../routes/fade'
 import ButtonDropdown from '../routes/button-dropdown'
+import ButtonGroup from '../routes/button-group'
 
 export default class App extends Component {
 	
@@ -51,6 +52,7 @@ export default class App extends Component {
 					<Tabs path="/components/tabs" />
 					<Fade path="/components/fade" />
 					<ButtonDropdown path="/components/button-dropdown" />
+					<ButtonGroup path="/components/button-group" />
 				</Router>
 				<Footer />
 			</div>

@@ -8,6 +8,7 @@
 * Card
 * Jumbotron
 * Layout
+* List Group
 * Pagination
 * Progress
 * Tables
@@ -25,7 +26,6 @@
 * Dropdowns
 * Form
 * Input Group
-* List Group
 * Media
 * Navs
 * Popovers
