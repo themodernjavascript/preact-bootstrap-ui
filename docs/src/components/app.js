@@ -21,6 +21,8 @@ import Tabs from '../routes/tabs'
 import Fade from '../routes/fade'
 import ButtonDropdown from '../routes/button-dropdown'
 import ButtonGroup from '../routes/button-group'
+import Collapse from '../routes/collapse'
+import Dropdown from '../routes/dropdowns'
 
 export default class App extends Component {
 	
@@ -53,6 +55,8 @@ export default class App extends Component {
 					<Fade path="/components/fade" />
 					<ButtonDropdown path="/components/button-dropdown" />
 					<ButtonGroup path="/components/button-group" />
+					<Collapse path="/components/collapse" />
+					<Dropdown path="/components/dropdowns" />
 				</Router>
 				<Footer />
 			</div>
